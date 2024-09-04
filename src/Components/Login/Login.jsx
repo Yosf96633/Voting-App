@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -113,6 +114,17 @@ const Login = () => {
           >
             Sign up
           </a>
+        </p>
+        <p className="mt-4 text-center">
+          Login as admin?{" "}
+          <Link
+           to="/admin_login"
+            className={`hover:underline transition-colors duration-300 ${
+              darkMode ? "text-blue-400" : "text-blue-500"
+            }`}
+          >
+           Login Admin
+          </Link>
         </p>
       </div>
     </div>
