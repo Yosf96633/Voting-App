@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-
 const AddVoter = () => {
   const darkmode = useSelector((state) => {
     return state.AdminTheme.Admin_dark_mode;
@@ -20,8 +19,8 @@ const AddVoter = () => {
     // Prepare form data to send to the backend
     const formData = new FormData();
     formData.append('add', 'true');
-    formData.append('firstname', firstname);
-    formData.append('lastname', lastname);
+    formData.append('first_name', firstname);
+    formData.append('last_name', lastname);
     formData.append('password', password);
 
     try {
@@ -43,7 +42,7 @@ const AddVoter = () => {
 
   return (
     <div className={`flex items-center justify-center min-h-screen ${darkmode ? " bg-gray-900 text-white" : " bg-white text-black"} transition-colors duration-300`} >
-      <div className={`shadow-md rounded-lg p-8 w-full max-w-lg border max-[540px]:mx-5 max-[425px]:mb-[5rem]  ${darkmode ? " bg-gray-900 text-white border-white" : " bg-white text-black border-gray-900"} transition-colors duration-300`}>
+      <div className={`shadow-md rounded-lg p-8 w-full max-w-lg border max-[540px]:mx-5 max-[425px]:mb-[6.75rem]  ${darkmode ? " bg-gray-900 text-white border-white" : " bg-white text-black border-gray-900"} transition-colors duration-300`}>
         <h2 className="text-2xl font-semibold text-center mb-6">Add New Voter</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
