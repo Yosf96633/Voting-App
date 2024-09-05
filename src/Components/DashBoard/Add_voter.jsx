@@ -74,7 +74,7 @@ const AddVoter = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className={`w-full px-4 py-2 border border-gray-300 rounded-md text-gray-800 focus:ring focus:ring-blue-200  ${darkmode ? " bg-gray-700 " : " bg-white"}`}
+              className={`w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200  ${darkmode ? " bg-gray-700 " : " bg-white"}`}
               placeholder="Enter password"
               required
             />
