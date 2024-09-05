@@ -43,8 +43,8 @@ const AddCandidate = () => {
   };
 
   return (
-    <div className={`flex items-center justify-center min-h-screen ${darkmode ? " bg-gray-900 text-white" : " bg-white text-black"} transition-colors duration-300`}>
-      <div className={`shadow-md rounded-lg p-8 w-full max-w-lg border  max-[540px]:mx-5 max-[425px]:mb-[6.75rem] ${darkmode ? " bg-gray-900 text-white border-white" : " bg-white text-black border-gray-900"} transition-colors duration-300`}>
+    <div className={`flex items-center justify-center min-h-screen max-sm:min-h-[80vh] ${darkmode ? " bg-gray-900 text-white" : " bg-white text-black"} transition-colors duration-300`}>
+      <div className={`shadow-md rounded-lg p-8 w-full max-w-lg border max-[540px]:mx-6 max-[425px]:mb-[2.75rem]${darkmode ? " bg-gray-900 text-white border-white" : " bg-white text-black border-gray-900"} transition-colors duration-300`}>
         <h2 className="text-2xl font-semibold text-center mb-6">Add New Candidate</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>

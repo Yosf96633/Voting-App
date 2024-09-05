@@ -18,13 +18,13 @@ const Winner = () => {
   });
   return (
     <div
-      className={` h-[120vh] flex flex-col items-center justify-center ${
+      className={` h-[120vh] flex flex-col items-center justify-center max-sm:gap-0 gap-3 ${
         darkmode ? " bg-gray-900 text-white " : " bg-white text-black"
       } transition-colors duration-300 border-t`}
     >
         
       <h1 className=" my-8 text-center font-semibold max-sm:text-5xl text-6xl">Overall Results of Voting</h1>
-      <ResponsiveContainer width="100%" height={400}>
+      <ResponsiveContainer width="100%" height={450}>
         <BarChart
           data={candidates}
           margin={{ top: 20, right: 30, left: 0, bottom: 5 }}

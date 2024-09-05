@@ -3,9 +3,9 @@ import { LineChart, Line, BarChart, Bar , XAxis, YAxis, CartesianGrid, Tooltip, 
 import data from '../../../Data/data'; 
 const Chart = ({darkmode}) => {
   return (
-   <div className=' w-[80vw]'>
+   <div className=' w-[80vw] flex flex-col items-center justify-center'>
     <h1 className=' text-center font-semibold text-3xl py-[2rem]'>Voting Results Over Time</h1>
-     <ResponsiveContainer width="100%" height={400}>
+     <ResponsiveContainer width="120%" height={375}>
       <LineChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="time" />
@@ -17,7 +17,7 @@ const Chart = ({darkmode}) => {
         <Line type="monotone" dataKey="votes.candidateC" stroke="#ffc658" name="Candidate C" />
       </LineChart>
     </ResponsiveContainer>
-    <ResponsiveContainer width="100%" height={400}>
+    <ResponsiveContainer width="120%" height={350}>
       <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="time" />

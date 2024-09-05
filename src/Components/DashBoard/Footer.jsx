@@ -12,7 +12,7 @@ const Footer = () => {
           Yosf
         </span>{" "}
         and <span className="font-medium underline">Shahzaib Ali</span>
-        . Proudly powered by React JS, Tailwind CSS and Recharts.
+        . Proudly powered by React JS, Tailwind CSS, Recharts and PHP.
       </p>
     </footer>
   );

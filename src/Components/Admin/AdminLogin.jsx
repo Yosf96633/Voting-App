@@ -20,7 +20,7 @@ const AdminLogin = () => {
     }
 
     // Mock authentication logic
-    if (email === "yosf96633@gmail.com" && password === "111") {
+    if (email === "admin@gmail.com" && password === "111") {
       setSuccess(true);
       setError("");
     } else {
