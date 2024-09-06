@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate , Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const SideMenu = ({ bars, setBars }) => {
   // useEffect(()=>{
   //   if(!bars)
@@ -62,10 +62,14 @@ const SideMenu = ({ bars, setBars }) => {
               />
             </svg>
 
-            <Link onClick={()=>{
-                  navigate("/dashboard")
-                  setBars(false)
-            }}>Home</Link>
+            <Link
+              onClick={() => {
+                navigate("/dashboard");
+                setBars(false);
+              }}
+            >
+              Home
+            </Link>
           </div>
         </li>
         <li
@@ -89,9 +93,14 @@ const SideMenu = ({ bars, setBars }) => {
               />
             </svg>
 
-            <Link to="winner" onClick={()=>{
-                 setBars(false)
-            }}>Winner</Link>
+            <Link
+              to="winner"
+              onClick={() => {
+                setBars(false);
+              }}
+            >
+              Winner
+            </Link>
           </div>
         </li>
         <li
@@ -114,9 +123,14 @@ const SideMenu = ({ bars, setBars }) => {
                 d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"
               />
             </svg>
-            <Link to="add_candidate" onClick={()=>{
-              setBars(false)
-            }}>Add Candidate</Link>
+            <Link
+              to="add_candidate"
+              onClick={() => {
+                setBars(false);
+              }}
+            >
+              Add Candidate
+            </Link>
           </div>
         </li>
         <li
@@ -136,13 +150,18 @@ const SideMenu = ({ bars, setBars }) => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
+                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
               />
             </svg>
 
-            <Link to="add_voter" onClick={()=>{
-              setBars(false)
-            }}>Add Voter</Link>
+            <Link
+              to="voter"
+              onClick={() => {
+                setBars(false);
+              }}
+            >
+              Voter
+            </Link>
           </div>
         </li>
         <li

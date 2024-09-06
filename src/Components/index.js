@@ -10,4 +10,7 @@ import Footer from "./DashBoard/Footer";
 import Winner from "./DashBoard/Winner";
 import Add_candidate from "./DashBoard/Add_candidate";
 import Add_voter from "./DashBoard/Add_voter";
-export {Header , Login , AdminLogin , DBHeader , Add_voter, Add_candidate , SideMenu , Footer , Chart, DashHero, Cards , Winner}
+import Voter from "./DashBoard/Voter";
+import VotersList from "./DashBoard/VotersList";
+import Delete_voter from "./DashBoard/Delete_voter";
+export {Header, VotersList , Login , Delete_voter, AdminLogin, Voter , DBHeader , Add_voter, Add_candidate , SideMenu , Footer , Chart, DashHero, Cards , Winner}

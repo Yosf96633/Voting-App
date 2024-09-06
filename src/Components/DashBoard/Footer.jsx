@@ -6,7 +6,7 @@ const Footer = () => {
   });
   return (
     <footer className={` flex justify-center items-center gap-2${darkmode?" bg-gray-900 text-white":" bg-white text-black"} transition-colors duration-300 border-t border-gray-400`}>
-      <p className=" text-wrap text-center py-6">
+      <p className=" text-wrap text-center py-6 text-xl md:text-2xl">
         Built with ❤️ by{" "}
         <span className=" font-medium underline">
           Yosf
