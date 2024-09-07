@@ -13,4 +13,30 @@ import Add_voter from "./DashBoard/Add_voter";
 import Voter from "./DashBoard/Voter";
 import VotersList from "./DashBoard/VotersList";
 import Delete_voter from "./DashBoard/Delete_voter";
-export {Header, VotersList , Login , Delete_voter, AdminLogin, Voter , DBHeader , Add_voter, Add_candidate , SideMenu , Footer , Chart, DashHero, Cards , Winner}
+import EditVoter from "./DashBoard/Edit_voter";
+import Candidate from "./DashBoard/Candidate";
+import CandidatesList from "./DashBoard/CandidatesList";
+import EditCandidate from "./DashBoard/Edit_candidate";
+import DeleteCandidate from "./DashBoard/DeleteCandidate";
+export {
+  Header,
+  EditCandidate,
+  DeleteCandidate,
+  VotersList,
+  Login,
+  EditVoter,
+  Candidate,
+  CandidatesList,
+  Delete_voter,
+  AdminLogin,
+  Voter,
+  DBHeader,
+  Add_voter,
+  Add_candidate,
+  SideMenu,
+  Footer,
+  Chart,
+  DashHero,
+  Cards,
+  Winner,
+};

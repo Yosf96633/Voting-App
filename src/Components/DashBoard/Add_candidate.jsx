@@ -12,12 +12,11 @@ const AddCandidate = () => {
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
     setFirstname("");
-     setLastname("");
-     setPosition("");
-     setMessage("");
+    setLastname("");
+    setPosition("");
+    setMessage("");
 
     const formData = new FormData();
     formData.append('firstname', firstname);
@@ -43,12 +42,12 @@ const AddCandidate = () => {
   };
 
   return (
-    <div className={`flex items-center justify-center min-h-screen max-sm:min-h-[80vh] ${darkmode ? " bg-gray-900 text-white" : " bg-white text-black"} transition-colors duration-300`}>
+    <div className={`flex items-center justify-center py-9 min-h-screen max-sm:min-h-[90vh] ${darkmode ? " bg-gray-900 text-white" : " bg-white text-black"} transition-colors duration-300`}>
       <div className={`shadow-md rounded-lg p-8 w-full max-w-lg border max-[540px]:mx-6 max-[425px]:mb-[2.75rem]${darkmode ? " bg-gray-900 text-white border-white" : " bg-white text-black border-gray-900"} transition-colors duration-300`}>
         <h2 className="text-2xl font-semibold text-center mb-6">Add New Candidate</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block font-medium mb-2">First Name</label>
+            <label className="block font-medium mb-2 max-[440px]:text-sm">First Name</label>
             <input
               type="text"
               value={firstname}
@@ -59,7 +58,7 @@ const AddCandidate = () => {
             />
           </div>
           <div>
-            <label className="block font-medium mb-2">Last Name</label>
+            <label className="block font-medium mb-2 max-[440px]:text-sm">Last Name</label>
             <input
               type="text"
               value={lastname}
@@ -70,15 +69,18 @@ const AddCandidate = () => {
             />
           </div>
           <div>
-            <label className="block font-medium mb-2">Position</label>
-            <input
-              type="text"
+            <label className="block font-medium mb-2 max-[440px]:text-sm">Position</label>
+            <select
               value={position}
               onChange={(e) => setPosition(e.target.value)}
               className={`w-full px-4 py-2 border border-gray-300 rounded-md  ${darkmode ? " bg-gray-700 " : " bg-white"}`}
-              placeholder="Enter position"
               required
-            />
+            >
+              <option value="Party A">Party A</option>
+              <option value="Party B">Party B</option>
+              <option value="Party C">Party C</option>
+              <option value="IND">IND</option>
+            </select>
           </div>
           <button
             type="submit"

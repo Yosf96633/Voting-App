@@ -41,12 +41,12 @@ const AddVoter = () => {
   };
 
   return (
-    <div className={`flex items-center justify-center max-sm:min-h-[80vh] min-h-screen ${darkmode ? " bg-gray-900 text-white" : " bg-white text-black"} transition-colors duration-300`} >
+    <div className={`flex items-center justify-center py-8 max-sm:min-h-[90vh] min-h-screen ${darkmode ? " bg-gray-900 text-white" : " bg-white text-black"} transition-colors duration-300`} >
       <div className={`shadow-md rounded-lg p-8 w-full max-w-lg border max-[540px]:mx-6 max-[425px]:mb-[2.75rem]  ${darkmode ? " bg-gray-900 text-white border-white" : " bg-white text-black border-gray-900"} transition-colors duration-300`}>
-        <h2 className="text-2xl font-semibold text-center mb-6">Add New Voter</h2>
+        <h2 className="text-2xl font-semibold text-center mb-6 max-[440px]:text-xl">Add New Voter</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block font-medium mb-2">First Name</label>
+            <label className="block font-medium mb-2 max-[440px]:text-sm">First Name</label>
             <input
               type="text"
               value={firstname}
@@ -57,7 +57,7 @@ const AddVoter = () => {
             />
           </div>
           <div>
-            <label className="block  font-medium mb-2">Last Name</label>
+            <label className="block  font-medium mb-2 max-[440px]:text-sm">Last Name</label>
             <input
               type="text"
               value={lastname}
@@ -68,7 +68,7 @@ const AddVoter = () => {
             />
           </div>
           <div>
-            <label className="block  font-medium mb-2">Password</label>
+            <label className="block  font-medium mb-2 max-[440px]:text-sm">Password</label>
             <input
               type="password"
               value={password}

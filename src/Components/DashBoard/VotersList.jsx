@@ -9,7 +9,9 @@ const VotersList = () => {
   useEffect(() => {
     const fetchVoters = async () => {
       try {
-        const response = await fetch("http://localhost/VOTING%20SYSTEM/get_voters.php");
+        const response = await fetch(
+          "http://localhost/VOTING%20SYSTEM/get_voters.php"
+        );
         const data = await response.json();
         setVoters(data);
       } catch (error) {
@@ -21,37 +23,50 @@ const VotersList = () => {
 
     fetchVoters();
   }, []);
-console.log(voters);
+  console.log(voters);
 
   return (
     <div
       className={`${
         darkmode ? "bg-gray-900 text-white" : "bg-white text-black"
-      } transition-colors duration-300 max-md:py-11 py-24 min-h-screen  flex justify-center items-center`}
+      } transition-colors duration-300 max-[421px]:text-[0.75rem] max-md:py-11 py-24 min-h-screen  flex justify-center items-center`}
     >
       {loading ? (
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>
       ) : voters.length === 0 ? (
         <p className="text-2xl font-semibold">Voter list is empty!</p>
       ) : (
-        <div className={`border border-gray-400 h-[70vh] w-[70vw] max-sm:w-[90vw] max-sm:h-[80vh] overflow-y-auto p-8 rounded-[1rem]`}>
-        <div className={` ${
-        darkmode ? "bg-gray-900 text-white" : "bg-white text-black"
-      } transition-colors duration-300 grid grid-cols-3 p-4 font-semibold`}>
-          <div className="col-span-1">First Name</div>
-          <div className="col-span-1">Last Name</div>
+        <div
+          className={`border border-gray-400 h-[70vh] w-[70vw] max-sm:w-[90vw] max-sm:h-[80vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 ${darkmode?"scrollbar-track-gray-800":"scrollbar-track-slate-50"} p-8 rounded-[1rem]`}
+        >
+          <div
+            className={` ${
+              darkmode ? "bg-gray-900 text-white" : "bg-white text-black"
+            } transition-colors duration-300 grid grid-cols-3 p-4 font-semibold`}
+          >
+            <div className="col-span-1">Voter ID</div>
+            <div className="col-span-1 flex justify-center">First Name</div>
+            <div className="col-span-1 flex justify-center ">Last Name</div>
+          </div>
+          <ul className="divide-y divide-gray-400 overflow-y-auto">
+            {voters.voters.map((voter) => (
+              <li
+                key={voter.id}
+                className={` ${
+                  darkmode ? "bg-gray-700 text-white" : "bg-white text-black"
+                } transition-colors duration-300 grid grid-cols-3 p-4 my-4 rounded shadow-md`}
+              >
+                <div className="col-span-1">{voter.voters_id}</div>
+                <div className="col-span-1 flex justify-center">
+                  {voter.first_name}
+                </div>
+                <div className="col-span-1 flex justify-center">
+                  {voter.last_name}
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="divide-y divide-gray-400 overflow-y-auto">
-          {voters.voters.map((voter) => (
-            <li key={voter.id} className={` ${
-              darkmode ? "bg-gray-700 text-white" : "bg-white text-black"
-            } transition-colors duration-300 grid grid-cols-3 p-4 my-4 rounded shadow-md`}>
-              <div className="col-span-1">{voter.first_name}</div>
-              <div className="col-span-1">{voter.last_name}</div>
-            </li>
-          ))}
-        </ul>
-      </div>
       )}
     </div>
   );
