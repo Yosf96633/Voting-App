@@ -106,14 +106,14 @@ const Login = () => {
 
         <p className="mt-4 text-center">
           Don't have an account?{" "}
-          <a
-            href="/signup"
+          <Link
+            to="/signup"
             className={`hover:underline transition-colors duration-300 ${
               darkMode ? "text-blue-400" : "text-blue-500"
             }`}
           >
             Sign up
-          </a>
+          </Link>
         </p>
         <p className="mt-4 text-center">
           Login as admin?{" "}

@@ -15,7 +15,7 @@ const SideMenu = ({ bars, setBars }) => {
       className={`fixed top-0 left-0 w-[20rem] h-full border-r z-10${
         darkmode
           ? " bg-gray-900 text-white border-white"
-          : " bg-gray-300  text-black border-gray-900"
+          : " bg-gray-100  text-black border-gray-900"
       } Link-6 transform ${
         bars ? "translate-x-0" : "-translate-x-full"
       } transition-colors duration-300`}

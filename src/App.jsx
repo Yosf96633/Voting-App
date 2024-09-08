@@ -30,6 +30,7 @@ import {
   Position,
   Edit_Position,
   DeletePosition,
+  SignUp,
 } from "./Components/index";
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +40,7 @@ const routes = createBrowserRouter(
         <Route path="about" element={<AboutPage />} />
         <Route path="contact" element={<h1>Contact</h1>} />
         <Route path="login" element={<Login />} />
+        <Route path="signup" element={<SignUp/>}/>
       </Route>
       <Route path="admin_login" element={<AdminPage />}></Route>
       <Route path="dashboard" element={<AdminDashboardPage />}>
