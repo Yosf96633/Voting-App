@@ -13,7 +13,11 @@ const VotersList = () => {
           "http://localhost/VOTING%20SYSTEM/get_voters.php"
         );
         const data = await response.json();
-        setVoters(data);
+        console.log(data) 
+            if(data.success){
+          setVoters(data)
+        }
+        
       } catch (error) {
         console.error("Error fetching voters:", error);
       } finally {

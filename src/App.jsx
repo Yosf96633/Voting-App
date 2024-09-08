@@ -9,8 +9,10 @@ import {
   HomePage,
   AdminPage,
   AdminDashboardPage,
+  AboutPage,
   CandidatePage,
   VoterPage,
+  PositionPage,
 } from "./Pages/pages";
 import {
   Login,
@@ -24,13 +26,17 @@ import {
   Voter,
   EditVoter,
   Candidate,
+  AddPosition,
+  Position,
+  Edit_Position,
+  DeletePosition,
 } from "./Components/index";
 const routes = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<HomePage />}>
         <Route index element={<h1>Home</h1>} />
-        <Route path="about" element={<h1>About</h1>} />
+        <Route path="about" element={<AboutPage />} />
         <Route path="contact" element={<h1>Contact</h1>} />
         <Route path="login" element={<Login />} />
       </Route>
@@ -38,11 +44,17 @@ const routes = createBrowserRouter(
       <Route path="dashboard" element={<AdminDashboardPage />}>
         <Route index element={<DashHero />} />
         <Route path="winner" element={<Winner />} />
+        <Route path="position" element={<PositionPage />}>
+          <Route index element={<Position />} />
+          <Route path="add_position" element={<AddPosition />} />
+          <Route path="edit_position" element={<Edit_Position/>}/>
+          <Route path="delete_position" element={<DeletePosition/>}/>
+        </Route>
         <Route path="candidate" element={<CandidatePage />}>
           <Route index element={<Candidate />} />
           <Route path="add_candidate" element={<Add_candidate />} />
           <Route path="edit_candidate" element={<EditCandidate />} />
-          <Route path="delete_candidate" element={<DeleteCandidate/>}/>
+          <Route path="delete_candidate" element={<DeleteCandidate />} />
         </Route>
         <Route path="voter" element={<VoterPage />}>
           <Route index element={<Voter />} />

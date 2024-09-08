@@ -3,4 +3,6 @@ import AdminPage from "./AdminPage";
 import AdminDashboardPage from "./AdminDashboardPage";
 import VoterPage from "./VoterPage";
 import CandidatePage from "./CandidatePage";
-export {HomePage , AdminPage, CandidatePage , VoterPage ,  AdminDashboardPage}
+import AboutPage from "./AboutPage";
+import PositionPage from "./PositionPage";
+export {HomePage , AdminPage, CandidatePage, AboutPage, PositionPage , VoterPage ,  AdminDashboardPage}

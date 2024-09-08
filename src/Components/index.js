@@ -18,10 +18,20 @@ import Candidate from "./DashBoard/Candidate";
 import CandidatesList from "./DashBoard/CandidatesList";
 import EditCandidate from "./DashBoard/Edit_candidate";
 import DeleteCandidate from "./DashBoard/DeleteCandidate";
+import AddPosition from "./DashBoard/AddPosition";
+import Position from "./DashBoard/Postion";
+import PositionsList from "./DashBoard/PositionsList";
+import Edit_Position from "./DashBoard/Edit_Position";
+import DeletePosition from "./DashBoard/DeletePosition";
 export {
+  DeletePosition,
   Header,
   EditCandidate,
+  Edit_Position,
+  PositionsList,
   DeleteCandidate,
+  AddPosition,
+  Position,
   VotersList,
   Login,
   EditVoter,
