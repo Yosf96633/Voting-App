@@ -13,6 +13,7 @@ import {
   CandidatePage,
   VoterPage,
   PositionPage,
+  ContactPage,
 } from "./Pages/pages";
 import {
   Login,
@@ -38,7 +39,7 @@ const routes = createBrowserRouter(
       <Route path="/" element={<HomePage />}>
         <Route index element={<h1>Home</h1>} />
         <Route path="about" element={<AboutPage />} />
-        <Route path="contact" element={<h1>Contact</h1>} />
+        <Route path="contact" element={<ContactPage/>} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp/>}/>
       </Route>

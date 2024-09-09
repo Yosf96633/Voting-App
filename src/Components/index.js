@@ -25,8 +25,10 @@ import Edit_Position from "./DashBoard/Edit_Position";
 import DeletePosition from "./DashBoard/DeletePosition";
 import SignUp from "./Login/SignUp";
 import User_Footer from "./HomePageComponents/User_Footer";
+import UserSideMenu from "./SideMenu/UserSideMenu";
 export {
   DeletePosition,
+  UserSideMenu,
   User_Footer,
   SignUp,
   Header,

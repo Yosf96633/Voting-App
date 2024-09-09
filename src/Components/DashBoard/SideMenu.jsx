@@ -2,10 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 const SideMenu = ({ bars, setBars }) => {
-  // useEffect(()=>{
-  //   if(!bars)
-  //   {setBars(false)}
-  // },[bars])
   const navigate = useNavigate();
   const darkmode = useSelector((state) => {
     return state.AdminTheme.Admin_dark_mode;

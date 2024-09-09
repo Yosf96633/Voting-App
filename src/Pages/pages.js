@@ -5,4 +5,5 @@ import VoterPage from "./VoterPage";
 import CandidatePage from "./CandidatePage";
 import AboutPage from "./AboutPage";
 import PositionPage from "./PositionPage";
-export {HomePage , AdminPage, CandidatePage, AboutPage, PositionPage , VoterPage ,  AdminDashboardPage}
+import ContactPage from "./ContactPage";
+export {HomePage , AdminPage, CandidatePage, ContactPage, AboutPage, PositionPage , VoterPage ,  AdminDashboardPage}

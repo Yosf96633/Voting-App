@@ -10,6 +10,7 @@ import {
   redux,
   netlify,
   aws,
+  reactrouter,
 } from "../../public/assests/image";
 const AboutPage = () => {
   const darkmode = useSelector((state) => {
@@ -31,7 +32,7 @@ const AboutPage = () => {
             Technologies:
           </span>
           <div className="flex justify-center items-center py-7">
-            <div className=" grid grid-cols-4 gap-32 max-[430px]:gap-8 max-[430px]:grid-cols-3 max-[560px]:gap-12 max-[650px]:gap-16 max-[820px]:gap-24 max-[1154px]:gap-28">
+            <div className=" grid grid-cols-3 gap-32 max-[430px]:gap-8 max-[430px]:grid-cols-3 max-[560px]:gap-12 max-[650px]:gap-16 max-[820px]:gap-24 max-[1154px]:gap-28">
               <img className=" h-[11rem] max-[1154px]:h-[9rem] max-[820px]:h-[8rem] max-[650px]:h-[6.5rem] max-[560px]:h-[5rem]" src={react} alt="react" />
               <img className=" h-[11rem] max-[1154px]:h-[9rem] max-[820px]:h-[8rem] max-[650px]:h-[6.5rem] max-[560px]:h-[5rem]" src={tailwind} alt="tailwind" />
               <img className=" h-[11rem] max-[1154px]:h-[9rem] max-[820px]:h-[8rem] max-[650px]:h-[6.5rem] max-[560px]:h-[5rem]" src={php} alt="php" />
@@ -40,6 +41,7 @@ const AboutPage = () => {
               <img className=" h-[11rem] max-[1154px]:h-[9rem] max-[820px]:h-[8rem] max-[650px]:h-[6.5rem] max-[560px]:h-[5rem]" src={redux} alt="redux" />
               <img className=" h-[11rem] max-[1154px]:h-[9rem] max-[820px]:h-[8rem] max-[650px]:h-[6.5rem] max-[560px]:h-[5rem]" src={aws} alt="aws" />
               <img className=" h-[11rem] max-[1154px]:h-[9rem] max-[820px]:h-[8rem] max-[650px]:h-[6.5rem] max-[560px]:h-[5rem]" src={netlify} alt="netlify" />
+              <img className=" h-[11rem] max-[1154px]:h-[9rem] max-[820px]:h-[8rem] max-[650px]:h-[6.5rem] max-[560px]:h-[5rem]" src={reactrouter} alt="reactRouter" />
             </div>
           </div>
         </div>
