@@ -2,23 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../../../Redux/themeSlice";
-import {UserSideMenu} from "../index"
+import { UserSideMenu } from "../index";
 import { SetUserBars } from "../../../Redux/UserBar";
-
 const Header = () => {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.theme.darkMode);
-  const userBars = useSelector((state) => state.UserBars.UserBars); 
+  const userBars = useSelector((state) => state.UserBars.UserBars);
   return (
     <header
       className={` ${
         darkMode ? "bg-gray-900 text-white" : " bg-white text-black"
       } flex justify-between items-center px-4 py-6 transition-colors duration-300 border-b `}
     >
-      <h1 className="font-semibold text-2xl cursor-pointer">Voting App</h1>
+      <div className=" flex justify-center items-center gap-1">
+        <span className=" font-semibold text-2xl">DemocraSys</span>
+      </div>
 
       <nav className=" block max-md:hidden">
-        <ul className="flex gap-5">
+        <ul className="flex gap-14 text-sm">
           <li>
             <Link
               className={`transition-colors  duration-200 hover:text-gray-500`}
@@ -58,11 +59,16 @@ const Header = () => {
           >
             Log in
           </Link>
-          <Link className={` font-medium border px-4 py-2 rounded-md ${
+          <Link
+            className={` font-medium border px-4 py-2 rounded-md ${
               darkMode
                 ? " bg-gray-900 border-white text-white"
-                :  " bg-white border-gray-900 text-black"
-            }`} to="signup">Sign up</Link>
+                : " bg-white border-gray-900 text-black"
+            }`}
+            to="signup"
+          >
+            Sign up
+          </Link>
         </div>
         {/* theme svg */}
         <div className="flex items-center gap-7">
@@ -105,8 +111,8 @@ const Header = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            onClick={()=>{
-              dispatch(SetUserBars(true))
+            onClick={() => {
+              dispatch(SetUserBars(true));
             }}
             className="size-6 hidden max-md:block "
           >
@@ -118,9 +124,9 @@ const Header = () => {
           </svg>
         </div>
       </div>
-      {
-        userBars && <UserSideMenu userBars={userBars} SetuserBars={SetUserBars}/>
-      }
+      {userBars && (
+        <UserSideMenu userBars={userBars} SetuserBars={SetUserBars} />
+      )}
     </header>
   );
 };

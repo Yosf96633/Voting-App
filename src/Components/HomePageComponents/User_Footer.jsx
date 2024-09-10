@@ -13,7 +13,7 @@ const User_Footer = () => {
       <p className=" text-wrap text-center py-6 text-[0.75rem] md:text-xl">
         Built with ❤️ by <span className=" font-medium underline">Yosf</span>{" "}
         and <span className="font-medium underline">Shahzaib Ali</span>. Proudly
-        powered by React JS, Tailwind CSS, Recharts and PHP.
+        powered by React JS, Tailwind CSS and PHP.
       </p>
     </footer>
   );

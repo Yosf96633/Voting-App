@@ -28,7 +28,7 @@ const Login = () => {
 
     try {
       // Send POST request to PHP server
-      const response = await fetch('http://localhost/VOTING%20SYSTEM/login.php', {
+      const response = await fetch('democrasys.42web.io/login.php', {
         method: 'POST',
         body: formData
       });

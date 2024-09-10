@@ -27,7 +27,7 @@ const SignUp = () => {
     formData.append('email', email);
 
     try {
-      const response = await fetch('http://localhost/VOTING%20SYSTEM/add_voter.php', {
+      const response = await fetch('http://http://democrasys.42web.io/add_voter.php', {
         method: 'POST',
         body: formData,
       });

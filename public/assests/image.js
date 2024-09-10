@@ -7,7 +7,7 @@ import redux from "./redux.png"
 import aws from "./aws.png"
 import netlify from "./netlify.png"
 import reactrouter from "./reactrouter.png"
-
+import archive from "./archive.png"
 export {
-    php , react , sql , tailwind , vs , reactrouter , redux , aws , netlify
+    php , react , archive , sql , tailwind , vs , reactrouter , redux , aws , netlify
 }
