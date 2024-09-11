@@ -26,9 +26,17 @@ import DeletePosition from "./DashBoard/DeletePosition";
 import SignUp from "./Login/SignUp";
 import User_Footer from "./HomePageComponents/User_Footer";
 import UserSideMenu from "./SideMenu/UserSideMenu";
+import IssuesDisplay from "./DashBoard/ShowReports";
+import Home from "./HomePageComponents/Home";
+import CastVote from "./HomePageComponents/CastVote";
+import AuthContext from "./AuthContext";
 export {
   DeletePosition,
+  CastVote,
+  AuthContext,
+  Home,
   UserSideMenu,
+  IssuesDisplay,
   User_Footer,
   SignUp,
   Header,

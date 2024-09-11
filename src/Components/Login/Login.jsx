@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch} from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-
+import { setLogin } from "../../../Redux/isLogin";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,6 +10,8 @@ const Login = () => {
   
   const darkMode = useSelector((state) => state.theme.darkMode);
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(""); // Reset error
@@ -28,7 +30,7 @@ const Login = () => {
 
     try {
       // Send POST request to PHP server
-      const response = await fetch('democrasys.42web.io/login.php', {
+      const response = await fetch('http://localhost/VOTING%20SYSTEM/login.php', {
         method: 'POST',
         body: formData
       });
@@ -39,8 +41,9 @@ const Login = () => {
       if (result.success) {
         setSuccess(true);
         setError(""); 
-        // Navigate to dashboard or other protected page
-        // navigate('/dashboard');
+        dispatch(setLogin(true));
+        //Navigate to dashboard or other protected page
+        navigate('/');
       } else {
         setError(result.error);
       }

@@ -1,6 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
+import { setLogin } from "../../../Redux/isLogin";
 const UserSideMenu = ({ userBars, SetuserBars }) => {
+  const isLogin = useSelector(state=>{
+    return state.login.login
+    
+  })
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => {
     return state.theme.darkMode;
@@ -132,7 +137,19 @@ const UserSideMenu = ({ userBars, SetuserBars }) => {
         <li
           className={`py-2 my-5  w-[80%] cursor-pointer`}
         >
-          <div className="flex justify-center items-center gap-2">
+          { isLogin ?  <div
+         className={` font-medium  text-center border px-6 py-2 rounded-md cursor-pointer${
+           darkMode
+             ? " bg-white border-gray-900 text-black"
+             : " bg-gray-900 border-white text-white"
+         }`}
+         onClick={()=>{
+          dispatch(setLogin(false));
+          dispatch(SetuserBars(false));
+         }}
+       >
+         Logout
+       </div> : <div className="flex justify-center items-center gap-2">
           <div className=" flex gap-4 max-[520px]:flex-col">
           <Link
             className={` font-medium border px-6 py-2 rounded-md ${
@@ -152,7 +169,7 @@ const UserSideMenu = ({ userBars, SetuserBars }) => {
             }`} to="signup"
             onClick={()=>{dispatch(SetuserBars(false))}}>Sign up</Link>
         </div>
-          </div>
+          </div>}
         </li>
         {/* <li
           className={`py-2 my-5 border w-[80%] ${

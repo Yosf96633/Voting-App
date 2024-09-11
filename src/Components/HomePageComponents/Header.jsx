@@ -4,7 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../../../Redux/themeSlice";
 import { UserSideMenu } from "../index";
 import { SetUserBars } from "../../../Redux/UserBar";
+import { setLogin } from "../../../Redux/isLogin";
 const Header = () => {
+  const isLogin = useSelector(state=>{
+    return state.login.login
+    
+  })
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.theme.darkMode);
   const userBars = useSelector((state) => state.UserBars.UserBars);
@@ -15,7 +20,7 @@ const Header = () => {
       } flex justify-between items-center px-4 py-6 transition-colors duration-300 border-b `}
     >
       <div className=" flex justify-center items-center gap-1">
-        <span className=" font-semibold text-2xl">DemocraSys</span>
+        <span className={`font-semibold text-2xl max-[500px]:text-lg`}>DemocraSys</span>
       </div>
 
       <nav className=" block max-md:hidden">
@@ -48,7 +53,8 @@ const Header = () => {
       </nav>
       <div className=" flex gap-6 ">
         {/* button */}
-        <div className=" flex gap-4 max-md:hidden">
+       {
+          !isLogin ?  <div className=" flex gap-4 max-md:hidden">
           <Link
             className={` font-medium border px-6 py-2 rounded-md ${
               darkMode
@@ -69,7 +75,21 @@ const Header = () => {
           >
             Sign up
           </Link>
-        </div>
+        </div> :  
+         <div
+         className={` font-medium border px-6 py-2 rounded-md cursor-pointer block max-md:hidden${
+           darkMode
+             ? " bg-white border-gray-900 text-black"
+             : " bg-gray-900 border-white text-white"
+         }`}
+         onClick={()=>{
+          dispatch(setLogin(false));
+         }}
+       >
+         Logout
+       </div>
+
+       }
         {/* theme svg */}
         <div className="flex items-center gap-7">
           {darkMode ? (

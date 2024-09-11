@@ -13,7 +13,9 @@ const CandidatesList = () => {
           "http://localhost/VOTING%20SYSTEM/get_candidate.php"
         );
         const data = await response.json();
-        setCandidates(data);
+        console.log(data);
+        
+        setCandidates(data.candidates);
       } catch (error) {
         console.error("Error fetching candidates:", error);
       } finally {
@@ -49,7 +51,7 @@ const CandidatesList = () => {
             <div className="col-span-1 flex justify-center">Position</div>
           </div>
           <ul className="divide-y divide-gray-400 overflow-y-auto">
-            {candidates.candidates.map((candidate) => (
+            {candidates.map((candidate) => (
               <li
                 key={candidate.candidates_id}
                 className={` ${
