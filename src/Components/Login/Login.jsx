@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector , useDispatch} from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { setLogin } from "../../../Redux/isLogin";
+import { setLoginID } from "../../../Redux/loginID";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,12 +37,14 @@ const Login = () => {
       });
 
       const result = await response.json();
-
+      console.log(result);
+      
       // Handle response from PHP
       if (result.success) {
         setSuccess(true);
         setError(""); 
         dispatch(setLogin(true));
+        dispatch(setLoginID(result.voters_id));
         //Navigate to dashboard or other protected page
         navigate('/');
       } else {
@@ -121,19 +124,6 @@ const Login = () => {
             Login
           </button>
         </form>
-
-        <p className="mt-4 text-center">
-          Don't have an account?{" "}
-          <Link
-            to="/signup"
-            className={`hover:underline transition-colors duration-300 ${
-              darkMode ? "text-blue-400" : "text-blue-500"
-            }`}
-          >
-            Sign up
-          </Link>
-        </p>
-
         <p className="mt-4 text-center">
           Login as admin?{" "}
           <Link

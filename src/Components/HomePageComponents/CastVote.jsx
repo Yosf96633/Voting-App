@@ -3,57 +3,111 @@ import { useSelector } from "react-redux";
 
 const VoteComponent = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
+  const votersId = useSelector((state) => state.LoginID.loginID);
 
   const [candidates, setCandidates] = useState([]);
   const [selectedCandidate, setSelectedCandidate] = useState(null);
   const [loading, setLoading] = useState(true);
   const [voted, setVoted] = useState(false);
+  const [message, setMessage] = useState(""); // For showing messages to the user
 
   useEffect(() => {
+    const checkIfVoted = async () => {
+      try {
+        // Construct the URL with query parameters
+        const url = new URL("http://localhost/VOTING%20SYSTEM/check_voter_status.php");
+        url.searchParams.append("voters_id", votersId);
+    
+        // Send the GET request with query parameters
+        const response = await fetch(url, {
+          method: "GET",
+        });
+    
+        const result = await response.json();
+        if (result.success) {
+          if (result.voted) {
+            setVoted(true);
+            setLoading(false)
+            setMessage("You have already voted!");
+            return;
+          } else {
+            fetchCandidates(); // Fetch candidates if not voted
+          }
+        } else {
+          setMessage(result.message || "Error checking your vote status. Please try again later.");
+        }
+      } catch (error) {
+        console.error("Error checking voted status:", error);
+        setMessage("Error checking your vote status. Please try again later.");
+      }
+    };
+    
     const fetchCandidates = async () => {
       try {
-        const response = await fetch(
-          "http://localhost/VOTING%20SYSTEM/get_candidate.php"
-        );
+        const response = await fetch("http://localhost/VOTING%20SYSTEM/get_candidate.php");
         const data = await response.json();
         setCandidates(data.candidates);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching candidates:", error);
+        setMessage("Error fetching candidates. Please try again later.");
         setLoading(false);
       }
     };
 
-    fetchCandidates();
-  }, []);
+    checkIfVoted(); // Check if voter has already voted
+  }, [votersId]);
 
   const handleVote = async () => {
     if (selectedCandidate) {
       try {
-        // Create a FormData object
         const formData = new FormData();
         formData.append("id", selectedCandidate);
-  
-        // Send the form data using fetch
+
         const response = await fetch("http://localhost/VOTING%20SYSTEM/cast_vote.php", {
           method: "POST",
-          body: formData, // Use formData instead of JSON
+          body: formData,
         });
-  
+
         const result = await response.json();
         if (result.success) {
           setVoted(true);
+          setMessage("Thank you for voting!");
+          updateVotedStatus(votersId);
         } else {
-          alert("Error casting vote, please try again.");
+          setMessage("Error casting vote. Please try again.");
         }
       } catch (error) {
         console.error("Error casting vote:", error);
+        setMessage("Error casting vote. Please try again.");
       }
     } else {
-      alert("Please select a candidate to vote.");
+      setMessage("Please select a candidate to vote.");
     }
   };
-  
+
+  const updateVotedStatus = async (votersId) => {
+    try {
+      const formData = new FormData();
+      formData.append("voters_id", votersId);
+
+      const response = await fetch("http://localhost/VOTING%20SYSTEM/update_voter_status.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        console.log(result.message); // "Voted status updated successfully"
+      } else {
+        setMessage("Error updating vote status.");
+      }
+    } catch (error) {
+      console.error("Error updating voted status:", error);
+      setMessage("Error updating vote status.");
+    }
+  };
+
   if (loading) {
     return (
       <div
@@ -73,8 +127,8 @@ const VoteComponent = () => {
       } transition-colors duration-300 p-6`}
     >
       {voted ? (
-        <div className="text-3xl font-semibold text-white text-center">
-          Thank you for voting!
+        <div className={`text-3xl ${darkMode ? " text-white " : " text-black"} font-semibold text-center`}>
+          {message || "You have already voted!"}
         </div>
       ) : (
         <div
@@ -89,6 +143,9 @@ const VoteComponent = () => {
           >
             Vote for a Candidate
           </h2>
+          {message && (
+            <p className="text-center text-lg font-semibold text-red-600">{message}</p>
+          )}
           {candidates.length > 0 ? (
             <div className="space-y-4">
               {candidates.map((candidate) => (
@@ -114,9 +171,7 @@ const VoteComponent = () => {
                       type="radio"
                       name="candidate"
                       value={candidate.id}
-                      onChange={() =>
-                        setSelectedCandidate(candidate.id)
-                      }
+                      onChange={() => setSelectedCandidate(candidate.id)}
                       checked={selectedCandidate === candidate.id}
                       className="form-radio text-indigo-600"
                     />

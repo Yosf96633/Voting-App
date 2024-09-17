@@ -4,6 +4,8 @@ import AdminThemeReducer from "./AdminTheme"
 import barsReducer from "./bars";
 import UserBarReducer from "./UserBar";
 import LoginReducer from "./isLogin";
+import LoginIDReducer from "./loginID";
+
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
@@ -11,5 +13,6 @@ export const store = configureStore({
     bars: barsReducer,
     UserBars : UserBarReducer,
     login: LoginReducer,
+    LoginID : LoginIDReducer,
   },
 });

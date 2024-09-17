@@ -17,6 +17,7 @@ import {
 } from "./Pages/pages";
 import {
   Login,
+  Voting_status,
   DashHero,
   Winner,
   Add_candidate,
@@ -32,10 +33,11 @@ import {
   Position,
   Edit_Position,
   DeletePosition,
-  SignUp,
   Home,
   CastVote,
-  AuthContext
+  AuthContext,
+  Voting_Result,
+  Chart,
 } from "./Components/index";
 import { useSelector } from "react-redux";
 const App = () => {
@@ -45,16 +47,16 @@ const App = () => {
       <>
         <Route path="/" element={<HomePage />}>
           <Route index element={<Home/>} />
-          <Route path="cast_vote" element={<AuthContext><CastVote/></AuthContext>}/>
+          <Route path="cast_vote" element={<Voting_status><AuthContext><CastVote/></AuthContext></Voting_status>}/>
+          <Route path="result" element={<Voting_status><Voting_Result/></Voting_status>}/>
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage/>} />
           <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp/>}/>
         </Route>
         <Route path="admin_login" element={<AdminPage />}></Route>
         <Route path="dashboard" element={<AdminDashboardPage />}>
           <Route index element={<DashHero />} />
-          <Route path="winner" element={<Winner />} />
+          <Route path="winner" element={<Voting_status><Chart/></Voting_status>} />
           <Route path="reports" element={<IssuesDisplay/>}/>
           <Route path="position" element={<PositionPage />}>
             <Route index element={<Position />} />

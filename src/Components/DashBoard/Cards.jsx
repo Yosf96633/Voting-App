@@ -37,6 +37,22 @@ const Cards = () => {
     }
   };
 
+  const handleResetVoting = async () => {
+    try {
+      const response = await fetch("http://localhost/VOTING%20SYSTEM/reset.php", {
+        method: "POST",
+      });
+      const result = await response.json();
+      if (result.success) {
+        setMessage("Reset.");
+      } else {
+        setMessage("Error Reset voting.");
+      }
+    } catch (error) {
+      setMessage("An error occurred.");
+    }
+  };
+
   const handleEndVoting = async () => {
     try {
       const response = await fetch("http://localhost/VOTING%20SYSTEM/end_voting.php", {
@@ -109,6 +125,29 @@ const Cards = () => {
               />
             </svg>
             <span>End Voting</span>
+          </div>
+        )}
+
+         {votingStarted && votingEnded && (
+          <div
+            className="flex justify-center bg-green-400 items-center gap-2 text-lg border border-gray-300 h-[3.5rem] w-[12rem] max-[425px]:h-[2.5rem] max-[425px]:w-[9rem] rounded-lg cursor-pointer"
+            onClick={handleResetVoting}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
+              />
+            </svg>
+            <span>Start New Voting</span>
           </div>
         )}
 

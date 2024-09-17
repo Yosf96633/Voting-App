@@ -37,7 +37,7 @@ const PositionsList = () => {
       {loading ? (
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"></div>
       ) : message ? (
-        <p className="text-red-600">{message}</p>
+        <p className={`${darkmode ? " text-white" : "text-black"} text-2xl font-semibold`}>{message}</p>
       ) : positions.length === 0 ? (
         <p className="text-2xl font-semibold">No positions available!</p>
       ) : (

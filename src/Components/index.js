@@ -23,22 +23,26 @@ import Position from "./DashBoard/Postion";
 import PositionsList from "./DashBoard/PositionsList";
 import Edit_Position from "./DashBoard/Edit_Position";
 import DeletePosition from "./DashBoard/DeletePosition";
-import SignUp from "./Login/SignUp";
 import User_Footer from "./HomePageComponents/User_Footer";
 import UserSideMenu from "./SideMenu/UserSideMenu";
 import IssuesDisplay from "./DashBoard/ShowReports";
 import Home from "./HomePageComponents/Home";
 import CastVote from "./HomePageComponents/CastVote";
 import AuthContext from "./AuthContext";
+import Voting_status from "./HomePageComponents/Voting_status";
+import Voting_Result from "./HomePageComponents/Voting_Result";
+import ChartBar from "./ChartBar";
 export {
   DeletePosition,
+  Voting_status,
+  ChartBar,
   CastVote,
+  Voting_Result,
   AuthContext,
   Home,
   UserSideMenu,
   IssuesDisplay,
   User_Footer,
-  SignUp,
   Header,
   EditCandidate,
   Edit_Position,

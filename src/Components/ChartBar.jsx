@@ -32,7 +32,8 @@ const CustomXAxisTick = ({ x, y, payload }) => {
 };
 
 const BarChartComponent = () => {
-  const darkMode = useSelector((state) => state.AdminTheme.Admin_dark_mode);
+  const darkMode = useSelector((state) => state.theme.darkMode);
+  const darkmode = useSelector((state) => state.AdminTheme.Admin_dark_mode);
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -64,7 +65,7 @@ const BarChartComponent = () => {
   const maxVotes = data.length > 0 ? Math.max(...data.map((d) => d.votes)) : 0;
 
   return (
-    <div className={`min-h-screen flex items-center justify-center ${darkMode ? "bg-gray-900" : "bg-white"} transition-colors duration-300`}>
+    <div className={`min-h-screen flex items-center justify-center ${darkMode ? "bg-gray-900" : "bg-white"} ${darkmode ? "bg-gray-900" : "bg-white"} transition-colors duration-300`}>
       <div className="w-full max-w-4xl p-4">
         <h2 className={`text-center text-2xl font-bold mb-4 ${darkMode ? "text-white" : "text-black"}`}>
           Candidate Voting Results

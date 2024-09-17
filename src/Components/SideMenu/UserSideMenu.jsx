@@ -162,12 +162,6 @@ const UserSideMenu = ({ userBars, SetuserBars }) => {
           >
             Log in
           </Link>
-          <Link className={` font-medium border px-4 py-2 rounded-md ${
-              darkMode
-                ? " bg-gray-900 border-white text-white"
-                :  " bg-white border-gray-900 text-black"
-            }`} to="signup"
-            onClick={()=>{dispatch(SetuserBars(false))}}>Sign up</Link>
         </div>
           </div>}
         </li>
